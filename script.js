@@ -17,8 +17,25 @@ let formValidation = () => {
     console.log("successs");
     msg.innerHTML = "";
     acceptData();
+    postToApi();
   }
 };
+
+var obj = {
+  "expenseAmount" : input,
+  "Description" : input2
+}
+
+function postToApi(obj){
+
+axios.post("https://crudcrud.com/api/1e869b3129d5486e8cf350f8d7977f9f/expense", obj)
+.then( (msg) => {
+  console.log(msg.data);
+})
+.catch( (err) => {
+  console.error(err);
+})
+}
 
 let data = {};
 
